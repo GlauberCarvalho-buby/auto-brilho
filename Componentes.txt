@@ -1,0 +1,13 @@
+Luis Henrique Coelho Moura - 01678009, o componente Cabeçalho e Rodapé;
+
+Iuri Santos do Amaral - 01699582, o componente CardServiço e o CardPromoção;
+
+Glauber Carvalho Buby Nathasje 01708758, o componente CardVeiculo e o BadgeStatus;
+
+Jefferson Eronildo Rodrigues de Oliveira - 01712869, o componente ProtegeRota e o Dashboard;
+
+Lucas Gabriel do Nascimento Conceição - 01707247, o componente AuthContext e o 
+AgendamentosContext;
+
+Murilo oliveira Sousa 01756775, Hooks e Finalização.
+
