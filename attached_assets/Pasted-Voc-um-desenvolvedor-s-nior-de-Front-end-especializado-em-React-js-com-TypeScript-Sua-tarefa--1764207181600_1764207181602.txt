@@ -1,0 +1,215 @@
+Você é um desenvolvedor sênior de Front-end especializado em React.js com TypeScript. 
+Sua tarefa é criar um projeto COMPLETO, pronto para rodar, de um sistema web para um LAVA JATO brasileiro, 
+seguindo os requisitos abaixo com muito cuidado.
+
+### TECNOLOGIA E ESTRUTURA
+
+- Use **React.js com TypeScript** obrigatoriamente.
+- Estruture o projeto como um app SPA moderno, usando Vite ou Create React App (tanto faz, contanto que rode facilmente com `npm install` e `npm run dev` ou `npm start`).
+- NÃO use nenhum banco de dados externo (sem MySQL, PostgreSQL, MongoDB, Firebase, etc.).
+- Os dados devem ser:
+  - Mockados em arquivos locais (arrays de objetos em TypeScript)
+  - E/ou armazenados em **LocalStorage** para simular persistência.
+- Não crie backend separado. Toda a lógica deve ser simulada no front-end.
+- Todo o código, nomes de arquivos, nomes de pastas, textos da interface e comentários devem ser em **português do Brasil**.
+
+### TEMA E CONTEXTO
+
+O sistema será de um **lava jato brasileiro** com foco profissional, visual moderno, clean e bem organizado, 
+sem cara de projeto genérico de IA. Ele deve parecer um sistema real de uso interno + site institucional.
+
+- Identidade visual:
+  - Paleta de cores inspirada em serviços automotivos profissionais de alto padrão (por exemplo: azul, branco, cinza escuro).
+  - Tipografia limpa e legível.
+- Utilize imagens de carros e lava jato com contexto brasileiro (pode usar URLs de imagens gratuitas de alta qualidade, como Unsplash/Pexels, 
+desde que o alt text e a temática remetam ao Brasil).
+- Linguagem textual profissional, porém acessível. Nada de inglês no texto da interface.
+
+### PAPÉIS E AUTENTICAÇÃO
+
+Implemente um sistema de login SIMULADO com **três tipos de usuário**:
+
+1. **Cliente**
+2. **Funcionário**
+3. **Administrador**
+
+- Os usuários podem ser definidos em um arquivo `usuariosMock.ts` ou semelhante, com estrutura de tipo `Usuario` (id, nome, email, senha, papel).
+- A autenticação deve ser SIMULADA:
+  - Verificar email e senha contra a lista mock.
+  - Ao logar, salvar as informações básicas do usuário logado em LocalStorage (por exemplo: token fake + papel + nome).
+- Implementar:
+  - **Tela de Login** para todos os tipos de usuário.
+  - **Tela de Cadastro de Cliente** (apenas clientes podem se cadastrar; funcionários e admins são mockados).
+  - Lógica de logout limpando LocalStorage.
+- Implementar proteção de rotas:
+  - Algumas rotas só podem ser acessadas por usuários logados.
+  - Algumas rotas só podem ser acessadas por ADMIN.
+  - Outras só por FUNCIONÁRIO.
+  - Cliente logado vê seu próprio painel.
+
+### NAVEGAÇÃO / PÁGINAS (MÍNIMO 5, MAS PODEM SER MAIS)
+
+Use **React Router** com TypeScript.
+
+Crie pelo menos as páginas abaixo (pode criar mais se achar necessário):
+
+1. `Home`  
+   - Apresentação do lava jato, destaque de serviços, chamadas para ação (agendar, conhecer serviços, etc.)
+2. `Sobre`  
+   - História do lava jato, missão, visão, valores, diferenciais (ex: uso de produtos de qualidade, lavagem ecológica, atendimento rápido).
+3. `Serviços`  
+   - Lista detalhada de serviços (ex: Lavagem simples, completa, polimento, higienização interna, cristalização de pintura, etc.).
+4. `Promoções`  
+   - Lista de promoções ativas (ex: “Lavagem + Higienização com X% de desconto em tal dia”).
+5. `Contato`  
+   - Formulário de contato com campos: nome, e-mail, telefone, mensagem.
+   - Exibir também endereço, telefone e horário de funcionamento.
+6. `Login`  
+   - Tela de login para cliente, funcionário ou administrador.
+7. `CadastroCliente`  
+   - Tela para cliente criar conta no sistema.
+8. `DashboardCliente`  
+   - Cliente logado vê seus dados, seus veículos e seus agendamentos.
+9. `DashboardFuncionario`  
+   - Funcionário vê os agendamentos do dia, status dos serviços, clientes a serem atendidos.
+10. `DashboardAdministrador`  
+   - Administrador vê visão geral: quantidade de clientes, serviços realizados no período, agendamentos futuros, etc.
+11. `Agendamentos`  
+   - Tela geral de gerenciamento de agendamentos (listar, criar, editar status).
+12. `NaoEncontrada`  
+   - Página 404 simples, amigável e estilizada.
+
+### FUNCIONALIDADES (ENTRE 12 E 18, BEM CLARAS)
+
+Implemente um conjunto robusto de funcionalidades, equilibrando parte visual e lógica. 
+Use pelo menos **12 a 18 funcionalidades reais**, por exemplo:
+
+1. **Login de usuário** (cliente, funcionário, admin) com validação básica.
+2. **Cadastro de cliente** (formulário com validação, gravando no LocalStorage).
+3. **Gestão de veículos do cliente** (cliente pode cadastrar seus veículos: placa, modelo, cor, ano).
+4. **Agendamento de serviços**:
+   - Cliente escolhe veículo, tipo de serviço, data e horário.
+   - Agendamentos são salvos em estado global e LocalStorage.
+5. **Listagem de agendamentos por papel**:
+   - Cliente vê só os próprios agendamentos.
+   - Funcionário vê todos os agendamentos do dia.
+   - Admin vê todos, com filtros.
+6. **Controle de status do serviço**:
+   - Status possíveis: “Aguardando”, “Em andamento”, “Finalizado”.
+   - Funcionário pode alterar o status.
+7. **Dashboard com resumos**:
+   - Exibir cards com números: agendamentos do dia, serviços finalizados, quantidade de clientes, etc.
+8. **Histórico de serviços**:
+   - Cliente vê histórico dos serviços já realizados.
+9. **Gestão de promoções** (mock):
+   - Lista de promoções carregadas de dados estáticos.
+   - Admin pode ativar / desativar promoções (simulado em estado, não precisa persistir tudo).
+10. **Filtro de agendamentos por data/status**.
+11. **Busca simples por placa de veículo ou nome de cliente** (pelo menos na visão do funcionário ou admin).
+12. **Sistema de temas visuais básicos** (não precisa ser dark mode completo, mas pode ter destaque, cores consistentes).
+13. **Validação de formulários**:
+    - Mostrar mensagens de erro amigáveis e em português.
+14. **Feedback visual**:
+    - Exibir toasts simples ou mensagens de sucesso/erro após ações (login errado, cadastro feito, agendamento salvo).
+15. **Logout funcional**:
+    - Limpa dados do usuário e redireciona para a página de login ou home.
+16. **Página responsiva**:
+    - Layout ajustando bem em desktop e mobile (usar Flexbox ou CSS Grid).
+
+### COMPONENTIZAÇÃO
+
+Crie **bem mais que 8 componentes funcionais**, para atender e superar o requisito mínimo (algo entre 12 e 18 componentes). 
+Todos devem ser **componentes funcionais** em TypeScript.
+
+Sugestões de componentes:
+
+- `Cabecalho` (header com logo e navegação)
+- `Rodape`
+- `HeroHome` (banner principal da Home)
+- `CardServico`
+- `ListaServicos`
+- `CardPromocao`
+- `FormularioContato`
+- `FormularioLogin`
+- `FormularioCadastroCliente`
+- `FormularioAgendamento`
+- `ListaAgendamentos`
+- `CardAgendamento`
+- `BadgeStatus` (exibir status do serviço com cores)
+- `TabelaClientes` (para visão do admin)
+- `TabelaVeiculos`
+- `ProtegeRota` (ProtectedRoute)
+- `ProtegeRotaPorPapel` (componente para checar papel: cliente, funcionário, admin)
+- `Loader` ou `SpinnerCarregamento`
+
+Organize os componentes em pastas, por exemplo:
+
+- `src/components`
+- `src/pages`
+- `src/context`
+- `src/hooks`
+- `src/types`
+- `src/utils`
+
+### HOOKS (PELO MENOS 4 DIFERENTES)
+
+Use **pelo menos 4 hooks diferentes**, incluindo:
+
+- `useState` – para estados locais (inputs de formulário, status, etc.).
+- `useEffect` – para carregar dados do LocalStorage, salvar alterações, etc.
+- `useContext` – para contexto de autenticação (AuthContext) e, se quiser, contexto de agendamentos.
+- `useRef` – por exemplo, para focar automaticamente no primeiro campo do login ou para rolar para uma seção específica.
+- `useMemo` – opcional, para memorizar listas filtradas (ex: agendamentos filtrados por status ou data).
+- Crie **pelo menos um custom hook**, por exemplo:
+  - `useAuth` para lidar com login, logout, usuário atual.
+  - Ou `useAgendamentos` para abstrair lógica de agendamentos.
+
+### CONTEXTOS
+
+Implemente pelo menos:
+
+1. `AuthContext`
+   - Guarda informações do usuário logado e seu papel.
+   - Fornece funções de login, logout e checagem de papel (éAdmin, éFuncionario, éCliente).
+
+2. `AgendamentosContext` (opcional, mas desejável)
+   - Guarda lista de agendamentos.
+   - Funções para criar, atualizar status, buscar por cliente, etc.
+
+### CÓDIGO LIMPO E COMENTADO
+
+- Use TypeScript bem tipado (interfaces, types) para:
+  - Usuário
+  - Cliente
+  - Veículo
+  - Agendamento
+  - Promoção
+- Mantenha o código organizado, com nomes claros de variáveis e funções.
+- **Muito importante:** escreva comentários EM PORTUGUÊS, de forma humanizada, explicando:
+  - O propósito de cada contexto.
+  - A lógica de autenticação simulada.
+  - Como funciona a proteção de rotas.
+  - Como os hooks estão sendo usados e por quê.
+- Esses comentários devem ajudar estudantes a apresentarem o trabalho para o professor, mostrando compreensão do código.
+
+### ESTILO E UX
+
+- Pode usar CSS Modules, Styled Components ou CSS simples, mas escreva de forma organizada.
+- O design deve ser:
+  - Responsivo
+  - Moderno
+  - Com boa hierarquia visual (títulos, subtítulos, cards, botões destacados).
+- Botões de ação importantes como “Agendar lavagem”, “Cadastrar veículo”, “Finalizar serviço”, “Entrar no sistema” devem ser visualmente chamativos.
+
+### ENTREGA FINAL
+
+Entregue:
+
+- Todos os arquivos `.tsx`, `.ts`, `.css` (ou similar) necessários para o projeto rodar.
+- Um `README.md` simples explicando:
+  - Como instalar e rodar o projeto.
+  - Quais são as funcionalidades principais.
+  - Quais hooks e contextos foram utilizados.
+
+Certifique-se de que o projeto seja **rodável sem ajustes adicionais**, apenas com os comandos padrão do gerenciador de pacotes (npm ou yarn).
+Não deixe código genérico ou placeholder, entregue tudo pronto e funcional dentro do contexto de um sistema completo de lava jato brasileiro.
